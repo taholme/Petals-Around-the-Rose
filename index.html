@@ -31,13 +31,11 @@
       }
 
       .dices {
-        display: flex;
-        flex-direction: row;
-        gap: 36px;
         margin: 10px;
       }
 
-      .dice {
+      .dices > .dice {
+        padding: 0 18px;
         width: 51px;
         height: 51px;
       }
@@ -50,10 +48,10 @@
   </head>
   <body>
     <main class="container">
-      <div class="">
+      <div>
         The name of the game is <b>Petals Around the Rose</b>. The name is
         important.<br />
-        I will roll five dice and tell you how many petals appear.<br />
+        I will roll <span id="numword">five</span> dice and tell you how many petals appear.<br />
         Your task is to figure out my rule for determining the number of petals.
       </div>
 
