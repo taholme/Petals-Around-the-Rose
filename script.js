@@ -1,4 +1,4 @@
-const NUM_OF_DICE = 3;
+const NUM_OF_DICE = parseInt(prompt("How many dice would you like to play with? default: 5", 5));
 
 // DOM
 const dicesEl = document.getElementById("dices");
