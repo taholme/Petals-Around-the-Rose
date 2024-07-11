@@ -11,8 +11,8 @@ const calculatePetals = (dices) => dices.filter(({value}) => value % 2 == 1).red
 
 
 // Game Logic
-function setup(count) {
-    let dices = generateDices(5);
+function setup(count=5) {
+    let dices = generateDices(count);
     let petals = calculatePetals(dices);
 
     dicesEl.innerHTML = dices.map((dice) => `<img class="dice" src="./src/${dice.color}${dice.value}.jpg">`).join('');
@@ -21,3 +21,4 @@ function setup(count) {
 
 rollbtnEl.addEventListener('click', setup);
 setup();
+
