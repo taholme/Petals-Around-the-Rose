@@ -23,17 +23,24 @@ const calculatePetals = (dices) =>
 function setup(count) {
   let dices = generateDices(count);
   let petals = calculatePetals(dices);
-
-  dicesEl.innerHTML = dices
-    .map(
-      (dice) => `<img class="dice" src="./src/${dice.color}${dice.value}.jpg">`
-    )
-    .join("");
   scoreEl.innerText = petals;
+  let existingDices = dicesEl.children;
+
+  dices.forEach(({color, value}, index) => {
+    if (index < existingDices.length){
+      existingDices[index].src = `./src/${color}${value}.jpg`;
+    }
+    else {
+      let img = document.createElement('img');
+      img.classList.add('dice');
+      img.src = `./src/${color}${value}.jpg`;
+      dicesEl.appendChild(img);
+    }
+  });
 }
+setup(NUM_OF_DICE);
 
 rollbtnEl.addEventListener("click", () => setup(NUM_OF_DICE));
-setup(NUM_OF_DICE);
 
 const numbersToWords = new Map([
   [0, "Zero"],
